@@ -1,7 +1,5 @@
 ---
-- hosts: all
-  become: true
-  tasks:
+# tasks file for httpd
     - name: Install apache httpd
       ansible.builtin.apt:
         name: apache2
@@ -9,7 +7,7 @@
         update_cache: yes
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: index.html
+        src: files/index.html
         dest: /var/www/html
         owner: root
         group: root
